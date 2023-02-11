@@ -43,7 +43,7 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 ## Please Note
 1.Don't use HoloCure Launcher open the game(will cause the locked fail).   
 2.Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
-3.Unlimited Coin function sometime will fail, you need to reopen the HoloCure many a time(this is a bug, next version maybe fix it)
-4.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.   
-5.If function don't work in stage, press esc can help you solve the problem.   
-6.The value of some functions needs to exceed 0 to be able to use
+3.Unlimited Coin function sometime will fail, you need to reopen the HoloCure many a time(this is a bug, next version maybe fix it).   
+4.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.      
+5.If function don't work in stage, press esc can help you solve the problem.      
+6.The value of some functions needs to exceed 0 to be able to use.   
