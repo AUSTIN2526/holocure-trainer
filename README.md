@@ -1,7 +1,8 @@
-# holocure-trainer  
-This trainer can help you dynamically modify the game. 
+# Holocure Trainer  
+This project can help you dynamically modify the game.
 
-download(exe)  
+
+## Download(exe)  
 ```
 https://github.com/AUSTIN2526/holocure-trainer/releases
 ```
@@ -11,7 +12,7 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 
 ## Funtion
 * ### Unlimited HP  
-  Make the character invincible.
+  Increase HP to 99999.
   
 * ### EX Pick Range  
   Increase pickup range to 99999.
@@ -20,18 +21,18 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
   Increase Atk to 9999999.
   
 * ### 999 Haste   
-  Increase Atk to 999 (this value too high will crash the game).
+  Increase Atk to 999.
   
 * ### Unlimited SP   
   Unlimited special skill.
 
 * ### Unlimited EXP   
-   Reduce the level to 1 to get the upgrade effect
+  Reduce the level to 1 to get the upgrade effect.
    
 * ### Stop Level Up   
-   Increase level to 999
+  Increase level to 999
    
-* ### Unlimited Coin   
+* ### Unlimited Coin(sometime will fail)   
   Increase coin to 99999999.
    
 ## How to use  
@@ -40,7 +41,9 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 3.Click on the function when you need.   
 
 ## Please Note
-1.Don't use HoloCure Launcher open the game.   
-2.Unlocking the collabs recipe the function will not work.   
-3.If function doesn't work, press esc can help you solve the problem.   
+1.Don't use HoloCure Launcher open the game(will cause the locked fail).   
+2.Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
+3.Unlimited Coin function sometime will fail, you need to reopen the HoloCure many a time(this is a bug, next version maybe fix it)
 4.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.   
+5.If function don't work in stage, press esc can help you solve the problem.   
+6.The value of some functions needs to exceed 0 to be able to use
