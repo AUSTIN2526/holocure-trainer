@@ -1,6 +1,5 @@
 # Holocure Trainer  
-This project can help you dynamically modify the game.
-
+This is a multipurpose trainer for HoloCure
 
 ## Download(exe)  
 ```
@@ -10,7 +9,7 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 ## Screenshot  
 ![Image text](https://github.com/AUSTIN2526/holocure-trainer/blob/main/screen.png) 
 
-## Funtion
+## Dynamic funtion
 * ### Unlimited HP  
   Increase HP to 99999.
   
@@ -30,11 +29,27 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
   Reduce the level to 1 to get the upgrade effect.
    
 * ### Stop Level Up   
-  Increase level to 999
-   
-* ### Unlimited Coin(sometime will fail)   
+  Increase level to 999.
+  
+## Save editor
+* ### Unlimited Coin
   Increase coin to 99999999.
+  
+* ### Unlock Armory
+  Unlock All armory.
+
+* ### Unlock Achievements
+  Unlock All achievements.
+
+* ### ALL Outfits and Characters
+  Unlock All characters outfits and modify characters LV to 20.
+  
+* ### All Stage
+  Unlock All stage.
    
+* ### Max Upgrades
+  Increase upgrades to max.
+  
 ## How to use  
 1.Open HoloCure and Trainer.   
 2.Click the detection button.   
@@ -43,7 +58,6 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 ## Please Note
 1.Don't use HoloCure Launcher open the game(will cause the locked fail).   
 2.Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
-3.Unlimited Coin function sometime will fail, you need to reopen the HoloCure many a time(this is a bug, next version maybe fix it).   
-4.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.      
-5.If function don't work in stage, press esc can help you solve the problem.      
-6.The value of some functions needs to exceed 0 to be able to use.   
+3.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.      
+4.If function don't work in stage, press esc can help you solve the problem.      
+5.The value of some functions needs to exceed 0 to be able to use.
