@@ -38,7 +38,7 @@ class AppWindow(QWidget):
                             'func_name_1_ex':[self.ui.func_group_1[4], None, 1079558144, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x9C0,0x04]],
                              
                             'func_name_2_level_up':[self.ui.func_group_2[0],self.ui.func_group_2[1], 1072693248, 0x008007B0, [0x30,0x2A90,0x4]],
-                            'func_name_2_stop_level_up':[self.ui.func_group_2[1],self.ui.func_group_2[0], 1083127808, 0x008007B0, [0x30,0x1D50,0x4]],
+                            'func_name_2_stop_level_up':[self.ui.func_group_2[1],self.ui.func_group_2[0], 1083127808, 0x008007B0, [0x30,0x2A90,0x4]],
                                 
                                 
                              #save editor(format function_name:[QCheckBox object,{key:val}])
