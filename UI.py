@@ -11,11 +11,11 @@ class Ui_Form:
         #set system language
         if self.language =='zh_TW' or self.language =='zh':
             self.language = 'zh_TW'
-            self.w, self.h, self.space, self.row_space = 450, 300, 90, 30
+            self.w, self.h, self.space, self.row_space = 450, 270, 90, 30
             
         else:
             self.language = 'en'
-            self.w, self.h, self.space, self.row_space = 620, 300, 140, 30
+            self.w, self.h, self.space, self.row_space = 620, 270, 140, 30
             
 
         #UI language (if you want add new function modify here【format func_name_ + "num"】)
@@ -24,39 +24,37 @@ class Ui_Form:
                                  'detect_button':'偵測遊戲',
                                  
                                  #modify here
-                                 'func_name_1':['鎖血無敵', '全圖撿物', '秒殺怪物', '999 攻速'],
-                                 'func_name_2':['無限技能','無限技能(Ame)'],
-                                 'func_name_3':['無限升級', '停止升級'],
-                                 'func_name_4':['無限金幣', '解鎖裝備', '解鎖成就', '全角色與服裝', '解鎖關卡', '解鎖被動'],
+                                 'func_name_1':['鎖血無敵', '全圖撿物', '秒殺怪物', '999 攻速','無限技能'],
+                                 'func_name_2':['無限升級','無限升級'],
+                                 'func_name_3':['無限金幣', '解鎖裝備', '解鎖成就', '全角色與服裝', '解鎖關卡', '解鎖被動'],
                                  
                                  #modify here
                                  'func_title_1':'♠ 主要功能 ♠',
-                                 'func_title_2':'♥ 特殊技能 ♥',
-                                 'func_title_3':'♦ 升級 ♦',
-                                 'func_title_4':'♣ 修改存檔 ♣'},
+                                 'func_title_2':'♥ 升級 ♥',
+                                 'func_title_3':'♣ 修改存檔 ♣'},
                           
                         'en':{'ui_name':'HoloCure Trainer  by AUSTIN2526',
                               'info':'【Pleas click the detection button to enable function】',
                               'detect_button':'Detect',
                               
                               #modify here
-                              'func_name_1':['Unlimited HP', 'EX Pick Range', 'Spike Monster', '999 Haste'],
-                              'func_name_2':['Unlimited SP','Unlimited SP(Ame)'],
-                              'func_name_3':['Unlimited EXP', 'Stop Level Up'],
-                              'func_name_4':['Unlimited Coin', 'All Armorys', 'All Achievements', 'ALL Outfits and Characters', 'All Stages', 'Max Upgrades'],
+                              'func_name_1':['Unlimited HP', 'EX Pick Range', 'Spike Monster', '999 Haste', 'Unlimited SP'],
+                              'func_name_2':['Unlimited EXP', 'Stop Level Up'],
+                              'func_name_3':['Unlimited Coin', 'All Armorys', 'All Achievements', 'ALL Outfits and Characters', 'All Stages', 'Max Upgrades'],
                                  
                                #modify here
                               'func_title_1':'♠ Main Function ♠',
-                              'func_title_2':'♥ Special Skill ♥',
-                              'func_title_3':'♦ Level Up ♦',
-                              'func_title_4':'♣ Save Editor ♣'},          
+                              'func_title_2':'♦ Level Up ♦',
+                              'func_title_3':'♣ Save Editor ♣'},          
         }
+        
+        #QCheckBox group(save_editor_func_1 need to be in the last)
+        self.func_group_1, self.func_group_2, self.save_editor_func_1 = [], [], []
+        self.all_group = [self.func_group_1, self.func_group_2, self.save_editor_func_1]
         
     def setupUi(self, page):   
 
-        #QCheckBox group(save_editor_func_1 need to be in the last)
-        self.func_group_1, self.func_group_2, self.func_group_3, self.save_editor_func_1 = [], [], [], []
-        self.all_group = [self.func_group_1, self.func_group_2, self.func_group_3, self.save_editor_func_1]
+        
         
         #set window
         page.resize(self.w, self.h)

@@ -42,7 +42,7 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
   Unlock All achievements.
 
 * ### ALL Outfits and Characters
-  Unlock All characters outfits and modify characters LV to 20.
+  Unlock All characters outfits and modify characters LV to 30.
   
 * ### All Stage
   Unlock All stage.
@@ -58,6 +58,5 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 ## Please Note
 1.Don't use HoloCure Launcher open the game(will cause the locked fail).   
 2.Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
-3.If your character is Ame need to use Unlimited SP(Ame) instead of Unlimited SP.      
-4.If function don't work in stage, press esc can help you solve the problem.      
-5.The value of some functions needs to exceed 0 to be able to use.
+3.If function don't work in stage, press esc can help you solve the problem.      
+4.The value of some functions needs to exceed 0 to be able to use.

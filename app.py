@@ -31,16 +31,14 @@ class AppWindow(QWidget):
         #if you want to add new function modify here
         self.modify_data = {
                              #dynamic editor(format function_name:[QCheckBox object, interlock object, value, base address, offsets])
-                            'func_name_1_hP':[self.ui.func_group_1[0], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1F70,0x04]],
-                            'func_name_1_range':[self.ui.func_group_1[1], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1670,0x04]],
-                            'func_name_1_atk':[self.ui.func_group_1[2], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x480,0x04]],
-                            'func_name_1_haste':[self.ui.func_group_1[3], None, 1083127808, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1F0,0x04]],
-
-                            'func_name_2_ex':[self.ui.func_group_2[0], self.ui.func_group_2[1], 1079558144, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1B30,0x04]],
-                            'func_name_2_ex_ame':[self.ui.func_group_2[1], self.ui.func_group_2[0], 1079558144, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1B50,0x04]],
+                            'func_name_1_hP':[self.ui.func_group_1[0], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x11A0,0x04]],
+                            'func_name_1_range':[self.ui.func_group_1[1], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x500,0x04]],
+                            'func_name_1_atk':[self.ui.func_group_1[2], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x16C0,0x04]],
+                            'func_name_1_haste':[self.ui.func_group_1[3], None, 1083127808, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1430,0x04]],
+                            'func_name_1_ex':[self.ui.func_group_1[4], None, 1079558144, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x9C0,0x04]],
                              
-                            'func_name_3_level_up':[self.ui.func_group_3[0],self.ui.func_group_3[1], 1072693248, 0x00800B60, [0x48,0x10,0x1840,0x4]],
-                            'func_name_3_stop_level_up':[self.ui.func_group_3[1],self.ui.func_group_3[0], 1083127808, 0x00800B60, [0x48,0x10,0x1840,0x4]],  
+                            'func_name_2_level_up':[self.ui.func_group_2[0],self.ui.func_group_2[1], 1072693248, 0x008007B0, [0x30,0x2A90,0x4]],
+                            'func_name_2_stop_level_up':[self.ui.func_group_2[1],self.ui.func_group_2[0], 1083127808, 0x008007B0, [0x30,0x1D50,0x4]],
                                 
                                 
                              #save editor(format function_name:[QCheckBox object,{key:val}])
@@ -131,10 +129,10 @@ class AppWindow(QWidget):
                                                         self.ui.save_editor_func_1[3],
                                                         {
                                                          'characters':[
-                                                                        ['kronii', 20], ['fubuki', 20], ['calli', 20], ['mel', 20], ['suisei', 20], ['matsuri', 20], ['choco', 20], \
-                                                                        ['ayame', 20], ['haato', 20], ['random', 0], ['none', 0], ['roboco', 20], ['fauna', 20], ['sora', 20], ['miko', 20], ['empty', 0], ['gura', 20], ['sana', 20], \
-                                                                        ['okayu', 20], ['aki', 20], ['irys', 20], ['shion', 20], ['bae', 20], ['azki', 20], ['kiara', 20], ['aqua', 20], ['ina', 20], ['korone', 20], ['mio', 20], \
-                                                                        ['ame', 20], ['subaru', 20], ['mumei', 20]
+                                                                        ['kronii', 30], ['fubuki', 30], ['calli', 30], ['mel', 30], ['suisei', 30], ['matsuri', 30], ['choco', 30], \
+                                                                        ['ayame', 30], ['haato', 30], ['random', 0], ['none', 0], ['roboco', 30], ['fauna', 30], ['sora', 30], ['miko', 30], ['empty', 0], ['gura', 30], ['sana', 30], \
+                                                                        ['okayu', 30], ['aki', 30], ['irys', 30], ['shion', 30], ['bae', 30], ['azki', 30], ['kiara', 30], ['aqua', 30], ['ina', 30], ['korone', 30], ['mio', 30], \
+                                                                        ['ame', 30], ['subaru', 30], ['mumei', 30]
                                                          ],
                                                         'unlockedOutfits':['default', 'ameAlt1', 'kiaraAlt1', 'inaAlt1', 'guraAlt1', 'calliAlt1', 'irysAlt1', 'baeAlt1', 'sanaAlt1', 'faunaAlt1', 'mumeiAlt1', 'kroniiAlt1', 'kurokami', \
                                                                            'ameAlt2', 'inaAlt2', 'guraAlt2', 'calliAlt2', 'kiaraAlt2', 'irysAlt2', 'faunaAlt2', 'kroniiAlt2', 'fubukiAlt1', 'mioAlt1', 'koroneAlt1', 'okayuAlt1', 'soraAlt1', \
