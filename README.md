@@ -56,7 +56,8 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 3.Click on the function when you need.   
 
 ## Please Note
-1.Don't use HoloCure Launcher open the game(will cause the locked fail).   
-2.Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
-3.If function don't work in stage, press esc can help you solve the problem.      
-4.The value of some functions needs to exceed 0 to be able to use.
+1. Don't use HoloCure Launcher open the game(will cause the locked fail).   
+2. Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
+3. If function don't work in stage, press esc can help you solve the problem.      
+4. The value of some functions needs to exceed 0 to be able to use.   
+5. Delete all functions before opening the stage.

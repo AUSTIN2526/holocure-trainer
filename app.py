@@ -31,7 +31,7 @@ class AppWindow(QWidget):
         #if you want to add new function modify here
         self.modify_data = {
                              #dynamic editor(format function_name:[QCheckBox object, interlock object, value, base address, offsets])
-                            'func_name_1_hP':[self.ui.func_group_1[0], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x11A0,0x04]],
+                            'func_name_1_hP':[self.ui.func_group_1[0], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x11B0,0x04]],
                             'func_name_1_range':[self.ui.func_group_1[1], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x500,0x04]],
                             'func_name_1_atk':[self.ui.func_group_1[2], None, 1090021872, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x16C0,0x04]],
                             'func_name_1_haste':[self.ui.func_group_1[3], None, 1083127808, 0x00A1EFD8, [0x70,0x18,0x170,0x98,0x48,0x10,0x1430,0x04]],
