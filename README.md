@@ -1,10 +1,13 @@
 # Holocure Trainer  
-This is a multipurpose trainer for HoloCure
+Welcome to the multipurpose trainer for HoloCure!
 
 ## Download(exe)  
+You can download the trainer from the following link:
+[Download Holocure Trainer](https://github.com/AUSTIN2526/holocure-trainer/releases)
 ```
 https://github.com/AUSTIN2526/holocure-trainer/releases
 ```
+
 
 ## Screenshot  
 ![Image text](https://github.com/AUSTIN2526/holocure-trainer/blob/main/screen.png) 
@@ -13,8 +16,8 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 * ### Unlimited HP  
   Increase HP to 99999.
   
-* ### EX Pick Range  
-  Increase pickup range to 99999.
+* ### EX Pick Range
+  Extend your pickup range to 99999.
   
 * ### Spike Monster  
   Increase Atk to 9999999.
@@ -22,8 +25,8 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 * ### 999 Haste   
   Increase Atk to 999.
   
-* ### Unlimited SP   
-  Unlimited special skill.
+* ### Unlimited SP
+  Unleash special skills without any limitations.
 
 * ### Unlimited EXP   
   Reduce the level to 1 to get the upgrade effect.
@@ -33,31 +36,31 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
   
 ## Save editor
 * ### Unlimited Coin
-  Increase coin to 99999999.
+  Elevate your coin count to 99999999.
   
 * ### Unlock Armory
-  Unlock All armory.
+  Access all armory items .
 
 * ### Unlock Achievements
-  Unlock All achievements.
+  Unlock every achievement in the game.
 
 * ### ALL Outfits and Characters
-  Unlock All characters outfits and modify characters LV to 30.
+  Acquire all character outfits and set characters' levels to 30.
   
 * ### All Stage
-  Unlock All stage.
+  Unlock all stages for exploration.
    
 * ### Max Upgrades
-  Increase upgrades to max.
+  Max out your upgrades for an ultimate advantage.
   
 ## How to use  
-1. Open HoloCure and Trainer.   
-2. Click the detection button.   
-3. Click on the function when you need.   
+1. Launch both HoloCure and the Trainer.
+2. Click the "Detection" button to connect.
+3. Activate desired functions as needed.  
 
 ## Please Note
-1. Don't use HoloCure Launcher open the game(will cause the locked fail).   
-2. Unlocking the collabs recipe may cause the trainer to fail, you need to restart the stage to solve it.   
-3. If function don't work in stage, press esc can help you solve the problem.      
-4. The value of some functions needs to exceed 0 to be able to use.   
-5. Close all functions before opening the stage(v1.3.3-alpha).
+1. Do not use the HoloCure Launcher to start the game, as it may lead to a lockout failure.
+2. Unlocking collaboration recipes might cause the trainer to malfunction; restarting the stage can resolve this.
+3. If certain functions do not work during a stage, pressing the "ESC" key can help troubleshoot the issue.
+4. Some functions require values higher than 0 to be operational.
+5. Always deactivate all functions before entering a stage (v1.3.3-alpha).
