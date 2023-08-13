@@ -11,7 +11,7 @@ class Ui_Form:
             'zh': 'zh_TW',
             'en': 'en'
         }
-        self.language = language_mapping[language]
+        self.language = language_mapping.get(language, 'en')
 
         # UI text
         ui_data = {
