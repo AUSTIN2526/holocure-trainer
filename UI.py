@@ -19,7 +19,7 @@ class Ui_Form:
                 'windows_name': 'HoloCure修改器 by AUSTIN2526',
                 'info': '【啟動遊戲後按偵測按鈕遊戲即可啟用功能】',
                 'detect_button': '偵測遊戲',
-                'group_titles': ['♠ 主要功能 ♠', '♥ 升級 ♥', '♣ 修改存檔 ♣'],
+                'group_titles': ['♠ 主要功能 ♠', '♥ 升級(暫時移除) ♥', '♣ 修改存檔 ♣'],
                 'group_names': [
                     ['鎖血無敵', '全圖撿物', '秒殺怪物', '999 攻速', '無限技能'],
                     ['無限升級', '停止升級'],
@@ -30,7 +30,7 @@ class Ui_Form:
                 'windows_name': 'HoloCure Trainer by AUSTIN2526',
                 'info': '【Please click the detection button to enable function】',
                 'detect_button': 'Detect',
-                'group_titles': ['♠ Main Function ♠', '♦ Level Up ♦', '♣ Save Editor ♣'],
+                'group_titles': ['♠ Main Function ♠', '♦ Level Up(Temporarily removed) ♦', '♣ Save Editor ♣'],
                 'group_names': [
                     ['Unlimited HP', 'EX Pick Range', 'Spike Monster', '999 Haste', 'Unlimited SP'],
                     ['Unlimited EXP', 'Stop Level Up'],

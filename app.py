@@ -89,8 +89,7 @@ class AppWindow(QWidget):
         try:
             self.windows = Pymem("HoloCure.exe")
             self.game_module = module_from_name(self.windows.process_handle, "HoloCure.exe").lpBaseOfDll
-            
-            for functions in self.ui.groups[:-1]:
+            for functions in self.ui.groups[:-2]:
                 for function in functions:
                     function.setEnabled(True)
             
@@ -108,7 +107,8 @@ class AppWindow(QWidget):
 
     def dynamic_modify(self, parameter):
         title, name = parameter
-        checkbox, (value, address, offsets, interlock) = self.modify_data[title][name]
+        checkbox, modify_data = self.modify_data[title][name]
+        value, address, offsets, interlock = modify_data.values()
 
         # Interlock function
         if interlock:
@@ -119,10 +119,11 @@ class AppWindow(QWidget):
         while checkbox.isChecked():
             try:
                 addr = self.calculate_address(self.game_module + address, offsets)
-                if self.windows.read_int(addr) != value:
-                    self.windows.write_int(addr, value)
+                if self.windows.read_longlong(addr) != value:
+                    self.windows.write_longlong(addr, value)
             except:
                 pass
+           
     
     def save_editor(self, parameter):
         title, name = parameter
@@ -148,10 +149,10 @@ class AppWindow(QWidget):
 
             
     def calculate_address(self, address, offsets):
-        addr = self.windows.read_int(address)
+        addr = self.windows.read_longlong(address)
         for cnt,offset in enumerate(offsets):
             if cnt+1 != len(offsets):
-                addr = self.windows.read_int(addr + offset)           
+                addr = self.windows.read_longlong(addr + offset)           
         return addr + offsets[-1]
         
    
