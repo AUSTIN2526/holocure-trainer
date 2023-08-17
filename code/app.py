@@ -35,17 +35,17 @@ class AppWindow(QWidget):
             'zh_TW': {
                 'scan': ['掃描', '已掃描到遊戲'],
                 'error': ['錯誤', '請先開啟遊戲後再按偵測程式'],
-                'data_error': ['存檔讀取失敗', '初次下載請先開啟HoloCure，才能修改存檔'],
+                'data_error': ['存檔讀取失敗', '初次修改請先開啟HoloCure建立存檔後，才能開始修改'],
                 'save_editor_success': ['修改成功', '存檔修改完畢，重新啟動遊戲即可生效'],
                 'save_editor_error': ['修改失敗', '發生不明錯誤，請回報開發者來解決此問題']
             },
             'en': {
-                'scan': ['Scan', 'Scan Success'],
-                'error': ['Error', 'Please start the game first, then click the detection button'],
-                'data_error': ['Read Failed', 'For the first download, please open HoloCure before using save editor'],
-                'save_editor_success': ['Success', 'Modify successful, please restart the game to take effect'],
-                'save_editor_error': ['Fail', 'Unknown error, please report to the developer to fix this program']
-            }
+                'scan': ['Scan', 'Game scanned'],
+                'error': ['Error', 'Please open the game before pressing the detect button'],
+                'data_error': ['Save File Load Failed', 'For the first modification, please open HoloCure to create a save file before starting the modification'],
+                'save_editor_success': ['Successful', 'Save file modification completed, restart the game for the changes to take effect'],
+                'save_editor_error': ['Failed', 'An unknown error occurred, please report to the developer to resolve this issue']
+            },
         }
         self.info = info[self.ui.language]
         
@@ -89,7 +89,7 @@ class AppWindow(QWidget):
         try:
             self.windows = Pymem("HoloCure.exe")
             self.game_module = module_from_name(self.windows.process_handle, "HoloCure.exe").lpBaseOfDll
-            for functions in self.ui.groups[:-2]:
+            for functions in self.ui.groups[:-1]:
                 for function in functions:
                     function.setEnabled(True)
             

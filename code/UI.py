@@ -19,22 +19,22 @@ class Ui_Form:
                 'windows_name': 'HoloCure修改器 by AUSTIN2526',
                 'info': '【啟動遊戲後按偵測按鈕遊戲即可啟用功能】',
                 'detect_button': '偵測遊戲',
-                'group_titles': ['♠ 主要功能 ♠', '♥ 升級(暫時移除) ♥', '♣ 修改存檔 ♣'],
+                'group_titles': ['♠ 動態修改區 ♠', '♥ 升級效果區 ♥', '♣ 修改存檔區 ♣'],
                 'group_names': [
-                    ['鎖血無敵', '全圖撿物', '秒殺怪物', '999 攻速', '無限技能'],
+                    ['鎖血無敵', '全圖吸物', '秒殺怪物', '超高攻速', '無限技能'],
                     ['無限升級', '停止升級'],
-                    ['無限金幣', '解鎖裝備', '解鎖成就', '全角色與服裝', '解鎖關卡', '解鎖被動']
+                    ['無限貨幣', '全武器庫解鎖', '全成就解鎖', '全角色與服裝', '全關卡解鎖', '被動技能全滿','全小屋家具', '無限小屋道具']
                 ]
             },
-            'en': {
-                'windows_name': 'HoloCure Trainer by AUSTIN2526',
-                'info': '【Please click the detection button to enable function】',
-                'detect_button': 'Detect',
-                'group_titles': ['♠ Main Function ♠', '♦ Level Up(Temporarily removed) ♦', '♣ Save Editor ♣'],
+            'en':{
+                'windows_name': 'HoloCure Modifier by AUSTIN2526',
+                'info': '【Activate features by pressing the detection button after starting the game】',
+                'detect_button': 'Detect Game',
+                'group_titles': ['♠ Dynamic Function ♠', '♥ Upgrade Effects ♠', '♣ Save Editor ♣'],
                 'group_names': [
-                    ['Unlimited HP', 'EX Pick Range', 'Spike Monster', '999 Haste', 'Unlimited SP'],
-                    ['Unlimited EXP', 'Stop Level Up'],
-                    ['Unlimited Coin', 'All Armorys', 'All Achievements', 'ALL Outfits and Characters', 'All Stages', 'Max Upgrades']
+                    ['God Mode', 'Full Map Magnet', 'One-Hit Kills', 'Super High Attack Speed', 'Unlimited Skills'],
+                    ['Unlimited Level Up', 'Stop Level Up'],
+                    ['Unlimited Currency', 'Unlock All Weapons', 'Unlock All Achievements', 'Unlock All Characters and Outfits', 'Unlock All Stages', 'Max Upgrades', 'Unlock All Furniture', 'Unlimited Inventory']
                 ]
             }
         }
@@ -42,8 +42,8 @@ class Ui_Form:
         
         # UI size
         self.object_size = {
-            'zh_TW': (450, 280, 90),
-            'en': (620, 280, 140)
+            'zh_TW': (500, 280, 120),
+            'en': (780, 280, 180)
         }
         self.w, self.h, self.space = self.object_size[self.language]
 
