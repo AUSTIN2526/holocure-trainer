@@ -1,6 +1,6 @@
 # Holocure Trainer  
 Welcome to the multipurpose trainer for HoloCure!
-* Latest Trainer Version: v1.4.0-alpha
+* Latest Trainer Version: v1.4.0-beta
 * Corresponding HoloCure Version: 0.6.1692236265
 
 ## Download(exe)  
@@ -65,4 +65,4 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 2. Unlocking collaboration recipes might cause the trainer to malfunction; restarting the stage can resolve this.
 3. If certain functions do not work during a stage, pressing the "ESC" key can help troubleshoot the issue.
 4. Some functions require values higher than 0 to be operational.
-5. The save editing features must be executed while the game is closed (v1.4.0-alpha).
+5. The save editing features must be executed while the game is closed (v1.4.0-beta).
