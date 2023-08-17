@@ -46,7 +46,7 @@ def save_editor_info():
 
     # Stage
     stage = [
-        'STAGE 1', 'STAGE 2', 'STAGE 1 [HARD]', 'STAGE 3', 'STAGE 2 [HARD]', 'TIME STAGE 1', 'STAGE 4', 'STAGE 3 [HARD]', 'HOLO HOUSE'
+        'STAGE 1', 'STAGE 2', 'STAGE 1 (HARD)', 'STAGE 3', 'STAGE 2 (HARD)', 'TIME STAGE 1', 'STAGE 4', 'STAGE 3 (HARD)', 'HOLO HOUSE'
     ]
     
     # Tears
