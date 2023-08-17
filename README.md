@@ -1,7 +1,7 @@
 # Holocure Trainer  
 Welcome to the multipurpose trainer for HoloCure!
-* Latest Trainer Version: v1.4.0-beta
-* Corresponding HoloCure Version: 0.6.1692236265
+* Latest Trainer Version: v1.4.1
+* Corresponding HoloCure Version: 0.6.1692303599
 
 ## Download(exe)  
 You can download the trainer from the following link:
@@ -14,55 +14,64 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 ## Screenshot  
 ![Image text](https://github.com/AUSTIN2526/holocure-trainer/blob/main/screen.png) 
 
-## Dynamic funtion
-* ### Unlimited HP  
+## Dynamic Function
+* ### God Mode
   Increase HP to 99999.
   
-* ### EX Pick Range
+* ### Full Map Magnet
   Extend your pickup range to 99999.
   
-* ### Spike Monster  
+* ### One-Hit Kills  
   Increase Atk to 9999999.
   
-* ### 999 Haste   
+* ### Super High Attack Speed   
   Increase Atk to 999.
   
-* ### Unlimited SP
+* ### Unlimited Skills
   Unleash special skills without any limitations.
 
-* ### Unlimited EXP   
+  
+## Upgrade Effects
+* ### Unlimited Level Up   
   Reduce the level to 1 to get the upgrade effect.
    
-* ### Stop Level Up   
+* ### Stop Level Up  
   Increase level to 999.
   
 ## Save editor
-* ### Unlimited Coin
-  Elevate your coin count to 99999999.
+* ### Unlimited Currency
+  Modify holoCoins, tears, and fishSand.
   
-* ### Unlock Armory
-  Access all armory items .
+* ### Unlock All Weapons
+  Unlock all armory items .
 
-* ### Unlock Achievements
+* ### Unlock All Achievements
   Unlock every achievement in the game.
 
-* ### ALL Outfits and Characters
-  Acquire all character outfits and set characters' levels to 30.
+* ### Unlock All Characters and Outfits
+  Unlock all characters, costumes, and fandomEXP, and modify character levels to level 30.
   
-* ### All Stage
+* ### Unlock All Stages
   Unlock all stages for exploration.
    
 * ### Max Upgrades
   Max out your upgrades for an ultimate advantage.
+    
+* ### Unlock All Furniture
+  Unlock all furniture in Holo House.
+  
+* ### Unlimited Inventory
+  Unlock and increase the quantity of all consumables in Holo House.
+  
   
 ## How to use  
 1. Launch both HoloCure and the Trainer.
-2. Click the "Detection" button to connect.
-3. Activate desired functions as needed.  
+2. Click the "Detect Game" button to connect.
+3. Activate desired functions as needed.
+4. If using the Save Editor function, please close the game before making modifications.
 
 ## Please Note
-1. Do not use the HoloCure Launcher to start the game, as it may lead to a lockout failure.
-2. Unlocking collaboration recipes might cause the trainer to malfunction; restarting the stage can resolve this.
-3. If certain functions do not work during a stage, pressing the "ESC" key can help troubleshoot the issue.
-4. Some functions require values higher than 0 to be operational.
-5. The save editing features must be executed while the game is closed (v1.4.0-beta).
+1. Unlocking collaboration recipes might cause the trainer to malfunction; restarting the stage can resolve this.
+2. If certain functions do not work during a stage, pressing the "ESC" key can help troubleshoot the issue.
+3. Some functions require values higher than 0 to be operational.
+4. Please be aware of the corresponding HoloCure version for each Trainer. If the versions are different, functionalities other than the Save Editor may become ineffective.
