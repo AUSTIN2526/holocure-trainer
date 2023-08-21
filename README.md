@@ -1,7 +1,7 @@
 # Holocure Trainer  
 Welcome to the multipurpose trainer for HoloCure!
-* Latest Trainer Version: v1.4.1
-* Corresponding HoloCure Version: 0.6.1692303599
+* Latest Trainer Version: v1.4.2
+* Corresponding HoloCure Version: 0.6.1692568554
 
 ## Download(exe)  
 You can download the trainer from the following link:
