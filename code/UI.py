@@ -4,6 +4,7 @@ import locale
 
 class Ui_Form:
     def __init__(self):
+    
         # System language
         language = locale.getdefaultlocale()[0]
         language_mapping = {

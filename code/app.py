@@ -19,8 +19,8 @@ class AppWindow(QWidget):
         func_name = self.ui.ui_text['group_names']
         title_name = self.ui.ui_text['group_titles']
         self.groups = self.ui.groups
-        # Load modify data
         
+        # Load modify data
         modify_data = load_data()
         self.modify_data = {
             title_name[i]: {
@@ -30,20 +30,22 @@ class AppWindow(QWidget):
             for i in range(len(func_name))
         }
 
-        # System info language
+        # System language
         info = {
             'zh_TW': {
                 'scan': ['掃描', '已掃描到遊戲'],
                 'error': ['錯誤', '請先開啟遊戲後再按偵測程式'],
                 'data_error': ['存檔讀取失敗', '初次修改請先開啟HoloCure建立存檔後，才能開始修改'],
-                'save_editor_success': ['修改成功', '存檔修改完畢，重新啟動遊戲即可生效'],
+                'save_editor_success': ['修改成功', '存檔修改完畢'],
+                'save_editor_openError': ['修改失敗', '請關閉遊戲後再進行修改'],
                 'save_editor_error': ['修改失敗', '發生不明錯誤，請回報開發者來解決此問題']
             },
             'en': {
                 'scan': ['Scan', 'Game scanned'],
                 'error': ['Error', 'Please open the game before pressing the detect button'],
                 'data_error': ['Save File Load Failed', 'For the first modification, please open HoloCure to create a save file before starting the modification'],
-                'save_editor_success': ['Successful', 'Save file modification completed, restart the game for the changes to take effect'],
+                'save_editor_success': ['Successful', 'Save file modification completed'],
+                'save_editor_openError': ['Failed', 'Please make the save editor after closing the game.'],
                 'save_editor_error': ['Failed', 'An unknown error occurred, please report to the developer to resolve this issue']
             },
         }
@@ -54,10 +56,10 @@ class AppWindow(QWidget):
         self.game_data_path = f'{os.getenv("LOCALAPPDATA")}\HoloCure\save_n.dat'
         self.game_data = self.load_game_data(self.ui.groups[-1])
 
-        #read HoloCure windows
+        # Find HoloCure windows
         self.ui.page_button.clicked.connect(self.find_windows) 
 
-        #connect QCheckBox with modify function
+        # Connect QCheckBox with modify function
         for idx in range(len(self.ui.groups)):        
             for fucn_ID in range(len(self.ui.groups[idx])):
                 title = title_name[idx]
@@ -71,6 +73,7 @@ class AppWindow(QWidget):
         
         self.move(40, 40)
         self.show()
+        
     
     def load_game_data(self, save_editor):
         try:
@@ -129,18 +132,28 @@ class AppWindow(QWidget):
         title, name = parameter
         checkbox, data = self.modify_data[title][name]
         
+        # Save editor need to close the game
+        try:
+            is_game_open = Pymem("HoloCure.exe")
+        except:
+            is_game_open = None
+        
         try:
             if checkbox.isChecked():
+                # Replace game save
                 for modify_name, val in data.items():
                     self.game_data[modify_name] = val
-                
-                # Write game data
+
+                # Save editor result
                 with open(self.game_data_path, 'wb') as f:
                     game_data_json = json.dumps(self.game_data).encode('UTF-8')
                     encoded_data = base64.b64encode(game_data_json)
                     f.write(encoded_data)
-                    
-                QMessageBox.information(None, self.info['save_editor_success'][0], self.info['save_editor_success'][1])
+                  
+                if  is_game_open != None:
+                    QMessageBox.critical(None, self.info['save_editor_openError'][0], self.info['save_editor_openError'][1])
+                else:
+                    QMessageBox.information(None, self.info['save_editor_success'][0], self.info['save_editor_success'][1])
 
         except:
             QMessageBox.critical(None, self.info[self.ui.language][0], self.info['save_editor_error'][1])
