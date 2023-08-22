@@ -1,16 +1,16 @@
 def main_info():
     return (
-        {'value': 1090021872, 'address': 0x03147AB0, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x1630, 0x04], 'interlock':False},     # HP
-        {'value': 1090021872, 'address': 0x03147AB0, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x1920, 0x04], 'interlock': False},  # Pick Range
-        {'value': 1090021872, 'address': 0x03147AB0, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0xAC0, 0x04], 'interlock': False},  # ATK
-        {'value': 1083127808, 'address': 0x03147AB0, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x7F0, 0x04], 'interlock': False},  # Haste
-        {'value': 1079558144, 'address': 0x03147AB0, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x480, 0x04], 'interlock': False}    # EX
+        {'value': 1090021872, 'address': 0x03147900, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x1630, 0x04], 'interlock':False},     # HP
+        {'value': 1090021872, 'address': 0x03147900, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x1920, 0x04], 'interlock': False},  # Pick Range
+        {'value': 1090021872, 'address': 0x03147900, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0xAC0, 0x04], 'interlock': False},  # ATK
+        {'value': 1090021872, 'address': 0x03147900, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x7F0, 0x04], 'interlock': False},  # Haste
+        {'value': 1079558144, 'address': 0x03147900, 'offset': [0x70, 0x18, 0x170, 0x98, 0x48, 0x10, 0x480, 0x04], 'interlock': False}    # EX
     )
 
 def LV_info():
     return (
-        {'value': 1072693248, 'address': 0x03147838, 'offset': [0x48,0x10,0xC50, 0x04], 'interlock': True},    # Level up
-        {'value': 1083127808, 'address': 0x03147838, 'offset': [0x48,0x10,0xC50, 0x04], 'interlock': True}    # Stop Level up                           
+        {'value': 1072693248, 'address': 0x03147730, 'offset': [0x48,0x10,0xC50, 0x04], 'interlock': True},    # Level up
+        {'value': 1083127808, 'address': 0x03147730, 'offset': [0x48,0x10,0xC50, 0x04], 'interlock': True}    # Stop Level up                           
     )
     
 def save_editor_info():
@@ -64,7 +64,7 @@ def save_editor_info():
 
     return (
         
-        {'holoCoins': 99999999, 'randomMoneyKey': 0, 'fishSand':99999999, 'tears':[[name, 10000] for name in tears]},                                              
+        {'holoCoins': 9999999999, 'randomMoneyKey': 0, 'fishSand':9999999999, 'tears':[[name, 1000000] for name in tears]},                                              
         {'unlockedItems': items, 'unlockedWeapons': weapons, 'seenCollabs':collabs}, 
         {'achievements':{name:achievements_format for name in achievements}},
         {'characters': [[name, 30] for name in characters], 'unlockedOutfits':outfits, 'fandomEXP':[[name, 100] for name in characters]},
