@@ -72,6 +72,6 @@ https://github.com/AUSTIN2526/holocure-trainer/releases
 
 ## Please Note
 1. Unlocking collaboration recipes might cause the trainer to malfunction; restarting the stage can resolve this.
-2. If certain functions do not work during a stage, pressing the "ESC" key can help troubleshoot the issue.
+2. Make sure the executable file for opening the game is named "HoloCure.exe."
 3. Some functions require values higher than 0 to be operational.
 4. Please be aware of the corresponding HoloCure version for each Trainer. If the versions are different, functionalities other than the Save Editor may become ineffective.
