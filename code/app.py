@@ -122,8 +122,8 @@ class AppWindow(QWidget):
         while checkbox.isChecked():
             try:
                 addr = self.calculate_address(self.game_module + address, offsets)
-                if self.windows.read_longlong(addr) != value:
-                    self.windows.write_longlong(addr, value)
+                if self.windows.read_double(addr) != value:
+                    self.windows.write_double(addr, value)
             except:
                 pass
            
