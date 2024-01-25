@@ -83,6 +83,7 @@ class AppWindow(QWidget):
         self.threads = []
         self.windows = None
         self.game_module = None
+        self.setup_threads()
 
         self.enable_checkbox_groups()
 
@@ -132,8 +133,8 @@ class AppWindow(QWidget):
         try:
             self.windows = Pymem("HoloCure.exe")
             self.game_module = module_from_name(self.windows.process_handle, "HoloCure.exe").lpBaseOfDll
-            self.setup_threads()
             self.enable_checkbox_groups()
+            self.setup_threads()
             self.show_info_message(self.info['scan'][0], self.info['scan'][1])
         except Exception as e:
             self.show_error_message(self.info['error'][0], self.info['error'][1])
