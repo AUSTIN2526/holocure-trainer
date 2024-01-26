@@ -156,11 +156,12 @@ class AppWindow(QWidget):
                 with open(self.game_data_path, 'rb') as f:
                     decode_data = base64.b64decode(f.read())
                 self.cached_game_data = json.loads(decode_data)
+                return self.cached_game_data
+                
             except Exception as e:
                 self.show_error_message(self.info['data_error'][0], self.info['data_error'][1])
 
-        return self.cached_game_data
-
+        
     def show_info_message(self, title, message):
         QMessageBox.information(None, title, message)
 
