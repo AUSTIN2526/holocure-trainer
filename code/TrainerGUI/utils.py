@@ -1,77 +1,54 @@
-UI_TEXTS = {
-    'zh_TW': {
-        'window_title': 'HoloCure Trainer by AUSTIN2526',
-        'info_text': '【啟動遊戲後按偵測按鈕遊戲即可啟用功能】',
-        'detect_button_text': '偵測遊戲',
-        'group_titles': ['♠ 動態修改區 ♠', '♥ 升級效果區 ♥', '♣ 修改存檔區 ♣'],
-        'group_names': [
-            ['鎖血無敵', '全圖吸物', '秒殺怪物', '超高攻速', '無限技能'],
-            ['無限升級', '停止升級'],
-            ['無限貨幣', '全武器庫解鎖', '全成就解鎖', '全角色與服裝', '全關卡解鎖', '被動技能全滿', '全小屋家具', '無限小屋道具']
-        ]
-    },
-    'en': {
-        'window_title': 'HoloCure Trainer by AUSTIN2526',
-        'info_text': '【Activate features by pressing the detection button after starting the game】',
-        'detect_button_text': 'Detect Game',
-        'group_titles': ['♠ Dynamic Function ♠', '♥ Upgrade Effects ♠', '♣ Save Editor ♣'],
-        'group_names': [
-            ['God Mode', 'Full Map Magnet', 'One-Hit Kills', 'Super High Attack Speed', 'Unlimited Skills'],
-            ['Unlimited Level Up', 'Stop Level Up'],
-            ['Unlimited Currency', 'Unlock All Weapons', 'Unlock All Achievements', 'Unlock All Characters and Outfits', 'Unlock All Stages', 'Max Upgrades', 'Unlock All Furniture', 'Unlimited Inventory']
-        ]
-    }
-}
+# Constants
+DEFAULT_OFFSETS = [0x1A0, 0x48, 0x10]
+BASE_ADDRESS = 0x052CB8E0
 
-UI_SETTINGS = {
-    'zh_TW': {
-        'window_size': (500, 300),
-        'checkbox_spacing': 120,
-        'row_spacing': 30,
-        'label_font_size': 10,
-        'max_columns': 4
-    },
-    'en': {
-        'window_size': (780, 300),
-        'checkbox_spacing': 180,
-        'row_spacing': 30,
-        'label_font_size': 10,
-        'max_columns': 4
-    }
-}
+def get_trainer_data(ui_texts: dict) -> list:
+    """
+    Generate trainer data with given parameters.
 
-LANGUAGE_MAP = {
-    'zh_TW': 'zh_TW',
-    'zh': 'zh_TW',
-    'en': 'en'
-}
+    Args:
+        ui_texts (dict): Contains UI-related data, including 'group_names'.
 
-# System lanagage
-INFO_MESSAGES = {
-    'zh_TW': {
-        'scan': ['掃描', '已掃描到遊戲'],
-        'error': ['錯誤', '請先開啟遊戲後再按偵測程式'],
-        'data_error': ['存檔讀取失敗', '初次修改請先開啟HoloCure建立存檔後，才能開始修改'],
-        'save_editor_success': ['修改成功', '存檔修改完畢'],
-        'save_editor_openError': ['修改失敗', '請關閉遊戲後再進行修改'],
-        'save_editor_error': ['修改失敗', '發生不明錯誤，請回報開發者來解決此問題']
-    },
-    'en': {
-        'scan': ['Scan', 'Game scanned'],
-        'error': ['Error', 'Please open the game before pressing the detect button'],
-        'data_error': ['Save File Load Failed', 'For the first modification, please open HoloCure to create a save file before starting the modification'],
-        'save_editor_success': ['Successful', 'Save file modification completed'],
-        'save_editor_openError': ['Failed', 'Please make the save editor after closing the game.'],
-        'save_editor_error': ['Failed', 'An unknown error occurred, please report to the developer to resolve this issue']
-    },
-}
+    Returns:
+        list: A list of parameter dictionaries with value, address, and offset.
+    """
+    def create_parameter(name: str, value: float, stage_offset: int, offset_suffix: int, ui_texts: dict, dynamic_data) -> dict:
+        """
+        Create a parameter dictionary.
 
+        Args:
+            name (str): Name of the parameter.
+            value (float): Value for the parameter.
+            stage_offset (int): Stage offset for the parameter.
+            offset_suffix (int): Offset suffix for the parameter.
+            ui_texts (dict): UI text data to update.
 
-import locale
+        Returns:
+            dict: A dictionary containing the parameter data.
+        """
+        offset = [stage_offset] + DEFAULT_OFFSETS + [offset_suffix, 0x00]
+       
+        ui_texts['group_names'][0].append(name)
+        dynamic_data.update({name:{'value': value, 'address': BASE_ADDRESS, 'offset': offset}})
+    
+    def infinite_currency(name, static_data):  # 無限貨幣
+        MAX_HOLO_COINS = 9999999999
+        MAX_TEARS = 1000000
+        tears = ['myth', 'councilHope', 'gamers', 'gen0', 'gen1', 'gen2', 'id1', 'id2', 'id3']
+        currency_data = {'holoCoins': MAX_HOLO_COINS, 'randomMoneyKey': 0, 'fishSand': MAX_HOLO_COINS, 'tears': [[name, MAX_TEARS] for name in tears]}
+        ui_texts['group_names'][1].append(name)
 
-def get_ui_data(language=None):
-    if not language:
-        system_language = locale.getdefaultlocale()[0]
-        language = LANGUAGE_MAP.get(system_language, 'en')
+        static_data.update({name:currency_data})
 
-    return UI_TEXTS[language], UI_SETTINGS[language], INFO_MESSAGES[language]
+    ui_texts.setdefault('group_names', [[] for _ in ui_texts['group_titles']])
+    dynamic_data = {}
+    static_data = {}
+    create_parameter('鎖血無敵(S1)', 99999.0, 0x3470, 0x1C20, ui_texts, dynamic_data)
+    create_parameter('無限技能(S1)', 99999.0, 0x3470, 0x0B60, ui_texts, dynamic_data)
+    create_parameter('鎖血無敵(S3)', 99999.0, 0xF58, 0x1C20, ui_texts, dynamic_data)
+    create_parameter('無限技能(S3)', 99999.0, 0xF58, 0x0B60, ui_texts, dynamic_data)
+    create_parameter('鎖血無敵(S4)', 99999.0, 0xA00, 0x1C20, ui_texts, dynamic_data)
+    create_parameter('無限技能(S4)', 99999.0, 0xA00, 0x0B60, ui_texts, dynamic_data)
+
+    infinite_currency('無限Coin', static_data)
+    return dynamic_data, static_data
