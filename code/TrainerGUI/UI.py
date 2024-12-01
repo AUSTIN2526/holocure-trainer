@@ -21,11 +21,11 @@ class HoloCureTrainerUI:
 
     SETTINGS = {
         'zh_TW': {
-            'window_size': (500, 300),
-            'checkbox_spacing': 120,
+            'window_size': (700, 300),
+            'checkbox_spacing': 140,
             'row_spacing': 30,
             'label_font_size': 10,
-            'max_columns': 4
+            'max_columns': 5
         }
     }
 
@@ -109,7 +109,7 @@ class HoloCureTrainerUI:
                 checkbox_x = x_start + column * self.settings['checkbox_spacing']
                 checkbox_y = y_offset + row * self.settings['row_spacing']
 
-                checkbox.setGeometry(QtCore.QRect(checkbox_x, checkbox_y, 100, 30))
+                checkbox.setGeometry(QtCore.QRect(checkbox_x, checkbox_y, 800, 30))
                 checkbox.setText(str(name))
                 checkbox.setEnabled(False)
 
