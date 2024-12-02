@@ -33,8 +33,8 @@ class HoloCureTrainerUI:
             'max_columns': 5
         },
         'en': {
-            'window_size': (800, 480),
-            'checkbox_spacing': 160,
+            'window_size': (1000, 480),
+            'checkbox_spacing': 200,
             'row_spacing': 30,
             'label_font_size': 10,
             'max_columns': 5
@@ -64,6 +64,7 @@ class HoloCureTrainerUI:
         language = locale.getdefaultlocale()[0]
         if language == 'zh':
             language = 'zh_TW'
+            
         self.texts = self.TEXTS.get(language, self.TEXTS[self.DEFAULT_LANGUAGE])
         self.settings = self.SETTINGS.get(language, self.SETTINGS[self.DEFAULT_LANGUAGE])
         self.checkbox_groups: List[List[QCheckBox]] = []
