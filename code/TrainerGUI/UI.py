@@ -5,9 +5,8 @@ import sys
 import locale
 from .utils import get_trainer_data
 
-
 class HoloCureTrainerUI:
-    DEFAULT_LANGUAGE = 'zh_TW'
+    DEFAULT_LANGUAGE = 'en'
 
     # UI 文本與設定資料
     TEXTS = {
@@ -16,13 +15,26 @@ class HoloCureTrainerUI:
             'info_text': '【啟動遊戲後按偵測按鈕遊戲即可啟用功能】',
             'detect_button_text': '偵測遊戲',
             'group_titles': ['♠ 動態修改區 ♠', '♣ 修改存檔區 ♣'],
+        },
+        'en': {
+            'window_title': 'HoloCure Trainer by AUSTIN2526',
+            'info_text': '【Activate game and press the detect button to enable features】',
+            'detect_button_text': 'Detect Game',
+            'group_titles': ['♠ Dynamic Edit ♠', '♣ Save Edit ♣'],
         }
     }
 
     SETTINGS = {
         'zh_TW': {
-            'window_size': (700, 300),
+            'window_size': (700, 480),
             'checkbox_spacing': 140,
+            'row_spacing': 30,
+            'label_font_size': 10,
+            'max_columns': 5
+        },
+        'en': {
+            'window_size': (800, 480),
+            'checkbox_spacing': 160,
             'row_spacing': 30,
             'label_font_size': 10,
             'max_columns': 5
@@ -37,18 +49,27 @@ class HoloCureTrainerUI:
             'save_editor_success': {'title': '修改成功', 'text': '存檔修改完畢'},
             'save_editor_openError': {'title': '修改失敗', 'text': '請關閉遊戲後再進行修改'},
             'save_editor_error': {'title': '修改失敗', 'text': '發生不明錯誤，請回報開發者來解決此問題'}
+        },
+        'en': {
+            'scan': {'title': 'Scan', 'text': 'Game detected'},
+            'error': {'title': 'Error', 'text': 'Please launch the game before pressing detect'},
+            'data_error': {'title': 'Save File Error', 'text': 'Please launch HoloCure to create a save file before making modifications'},
+            'save_editor_success': {'title': 'Edit Successful', 'text': 'Save file edited successfully'},
+            'save_editor_openError': {'title': 'Edit Failed', 'text': 'Please close the game before making modifications'},
+            'save_editor_error': {'title': 'Edit Failed', 'text': 'An unknown error occurred, please contact the developer for assistance'}
         }
     }
 
-
     def __init__(self):
-        # 獲取系統語言並選擇相應的文本和設定
         language = locale.getdefaultlocale()[0]
+        if language == 'zh':
+            language = 'zh_TW'
         self.texts = self.TEXTS.get(language, self.TEXTS[self.DEFAULT_LANGUAGE])
         self.settings = self.SETTINGS.get(language, self.SETTINGS[self.DEFAULT_LANGUAGE])
         self.checkbox_groups: List[List[QCheckBox]] = []
-        self.alert = self.ALERT_MESSAGES.get(language, self.SETTINGS[self.DEFAULT_LANGUAGE])
-        self.data = get_trainer_data(self.texts)
+        self.alert = self.ALERT_MESSAGES.get(language, self.ALERT_MESSAGES[self.DEFAULT_LANGUAGE])
+        self.data = get_trainer_data(self.texts, language)
+        
     def setup_ui(self, window: QMainWindow):
         """
         設定主視窗的 UI。

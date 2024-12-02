@@ -51,11 +51,11 @@ class TrainerWindow(QWidget):
 
         if sender.isChecked() and self.windows:
             timer = QTimer(self)
-            timer.setInterval(10)  # 設置較長的間隔以降低 CPU 負擔
+            timer.setInterval(10)
             timer.timeout.connect(lambda: self.modify_dynamic_data(sender, data))
             timer.start()
 
-            sender.timer = timer  # 將計時器與 checkbox 綁定，方便後續管理
+            sender.timer = timer 
         elif hasattr(sender, 'timer'):
             sender.timer.stop()
             sender.timer.deleteLater()
@@ -82,21 +82,22 @@ class TrainerWindow(QWidget):
         checkbox_name = sender.text()
         new_value = self.static_data.get(checkbox_name, {})
 
-        if self.windows is None and sender.isChecked():
-            try:
-                for name, val in new_value.items():
-                    self.save_data[name] = val
+        if self.windows is None:
+            if sender.isChecked():
+                try:
+                    for name, val in new_value.items():
+                        self.save_data[name] = val
 
-                with open(self.SAVE_PATH, 'wb') as f:
-                    game_data_json = json.dumps(self.save_data).encode('UTF-8')
-                    encoded_data = base64.b64encode(game_data_json)
-                    f.write(encoded_data)
+                    with open(self.SAVE_PATH, 'wb') as f:
+                        game_data_json = json.dumps(self.save_data).encode('UTF-8')
+                        encoded_data = base64.b64encode(game_data_json)
+                        f.write(encoded_data)
 
-                self.show_message_box("成功", "存檔已成功更新")
-            except Exception as e:
-                self.show_error_message("存檔錯誤", str(e))
+                    self.show_message_box(**self.ui.alert['save_editor_success'])
+                except Exception as e:
+                    self.show_error_message(**self.ui.alert['data_error'])
         else:
-            self.show_error_message("存檔修改錯誤", '請先關閉遊戲在進行存檔修改')
+            self.show_error_message(**self.ui.alert['save_editor_openError'])
 
     def load_game_save(self):
         try:
@@ -104,9 +105,9 @@ class TrainerWindow(QWidget):
                 decode_data = base64.b64decode(f.read())
                 return json.loads(decode_data)
         except FileNotFoundError:
-            self.show_error_message("存檔錯誤", "找不到存檔文件")
+            self.show_error_message(**self.ui.alert['data_error'])
         except Exception as e:
-            self.show_error_message("載入錯誤", str(e))
+            self.show_error_message("Error", str(e))
             return {}
 
     def find_windows(self):
