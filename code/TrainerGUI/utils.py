@@ -45,13 +45,13 @@ def get_trainer_data(ui_texts: dict, language: str) -> tuple:
     # Define stages and parameters
     stages = [
         ('S1', 0x3470, 'complet'),
-        ('S2', 0x395270, 'complet'),
+        ('S2', 0x395270, 'Fail'),
         ('S3', 0xF58, 'complet'),
         ('S4', 0xA00, 'complet'),
-        ('S1H', 0x53f098, 'complet'),
-        ('S2H', 0x1716b8, 'complet'),
+        ('S1H', 0x53f098, 'Fail'),
+        ('S2H', 0x1716b8, 'Fail'),
         ('S3H', 0xFD8, 'complet'),
-        ('S4H', 0xAC2B0, 'complet')
+        ('S4H', 0xAC2B0, 'Fail')
     ]
 
     parameters = [
@@ -64,22 +64,105 @@ def get_trainer_data(ui_texts: dict, language: str) -> tuple:
 
     # Create parameters for each stage
     for stage, base_address, status in stages:
-        if status != 'unknow':
+        if status != 'Fail':
             for name, value, offset in parameters:
                 full_name = f'{name} ({stage})'
                 create_parameter(full_name, value, base_address, offset, ui_texts, dynamic_data)
 
     # Static data definitions
     static_functions = [
-        ('Infinite Coin', lambda name: {'holoCoins': 9999999999, 'randomMoneyKey': 0, 'fishSand': 9999999999, 'tears': [[name, 1000000] for name in ['myth', 'councilHope', 'gamers', 'gen0', 'gen1', 'gen2', 'id1', 'id2', 'id3']]}),
-        ('Unlock Weapons', lambda name: {'unlockedItems': ['BodyPillow', 'FullMeal', 'PikiPikiPiman', 'SuccubusHorn', 'Headphones', 'UberSheep', 'HolyMilk', 'Sake', 'FaceMask', 'CreditCard', 'GorillasPaw', 'InjectionAsacoco', 'IdolCostume', 'Plushie', 'StudyGlasses', 'SuperChattoTime', 'EnergyDrink', 'Halu', 'Membership', 'GWSPill', 'ChickensFeather', 'Bandaid', 'Limiter', 'PiggyBank', 'DevilHat', 'BlacksmithsGear', 'Breastplate', 'HopeSoda', 'Shacklesss', 'Candy', 'NinjaHeadband', 'FocusShades', 'Beetle', 'LabCoat'], 'unlockedWeapons': ['PsychoAxe', 'Glowstick', 'SpiderCooking', 'Tailplug', 'BLBook', 'EliteLava', 'HoloBomb', 'HoloLaser', 'CuttingBoard', 'IdolSong', 'CEOTears', 'WamyWater', 'XPotato', 'BounceBall', 'ENCurse', 'Sausage'], 'seenCollabs': ['BreatheInAsacoco', 'DragonBeam', 'EliteCooking', 'FlatBoard', 'MiComet', 'BLLover', 'LightBeam', 'IdolConcert', 'StreamOfTears', 'MariLamy', 'BrokenDreams', 'RapDog', 'BoneBros', 'RingOfFitness', 'MiKorone', 'SnowSake', 'ImDie', 'AbsoluteWall', 'EldritchHorror', 'StarHalberd', 'CurseBall', 'KanaCoco', 'LegendarySausage', 'Jingisukan', 'LightningWeiner', 'SnowQueen', 'IdolLive']}),
-        ('Unlock Achievements', lambda name: {'achievements': {ach: {'flags': {}, 'unlocked': 'True'} for ach in ['haatoClear', 'azkiGachikoi', 'hardcoreGamer', 'suiseiClear', 'kiaraClear', 'lv50', 'zeta10', 'ollieGachikoi', 'speedrunner', 'iofiGachikoi', 'soloBeater', 'reineGachikoi', 'rhythmmaster', 'okayuClear', '2hard', '3hard', 'huh', 'mumeiClear', 'fullyLoaded', 'irysGachikoi', 'shionClear', '1hard', 'mikoClear', 'melClear', 'dontFail', 'subaruClear', 'safeISwear', 'powerLevelling', 'boing', '10000damage', 'robocoGachikoi', 'kroniiClear', 'obliterated', 'risuClear', 'mumeiGachikoi', 'koboGachikoi', 'SCT', 'freeStickers', 'lv100', 'moonaClear', 'heyhey', 'akiGachikoi', 'thankYou', 'shinyfish', 'digin', 'ina10', 'calliClear', 'timeToUpgrade', 'hallucinated', 'matsuriClear', 'koroneClear', 'firstclear', 'millionaire', 'mikoGachikoi', 'payToWin', 'calli10', 'anyaClear', 'kaelaClear', 'koboClear', 'mioGachikoi', 'skillissue', 'shion10', 'donttouch', 'nomain', 'painPeko', 'irysClear', 'oraora', 'ollieClear', 'soraGachikoi', 'payDay', 'baeGachikoi', 'idolgroup', 'sanaClear', 'inaGachikoi', 'baeClear', 'grind', 'CEOnow', 'notTakingAnyChances', 'faunaGachikoi', 'justRNG', 'inaClear', 'bullethell', 'melGachikoi', 'shionGachikoi', 'suiseiGachikoi', 'chocoClear', 'kaelaGachikoi', 'kroniiGachikoi', 'barebones', 'wamy', 'ameClear', 'ollie10', 'iofiClear', 'faunaClear', 'fubukiGachikoi', 'idolPower', '1000damage', 'korone10', 'thirdboss', 'sana10', 'aquaClear', 'dontNeed', 'fullCollab', 'trueRNG', 'muscle', 'zetaClear', 'okayuGachikoi', 'haatoGachikoi', 'plentyoffish', 'employee', 'anyaGachikoi', 'nothoughts', 'petDog', 'howcouldyou', 'bae10', 'hammertime', 'highwayrobbery', 'delusional', 'robocoClear', 'guraClear', 'matsuriGachikoi', 'azkiClear', 'ameGachikoi', 'yagoostatue', 'lookImOnTV', 'sanaGachikoi', 'mioClear', 'aquaGachikoi', 'chocoGachikoi', 'welltrained', 'kiara10', 'ayameGachikoi', 'risuGachikoi', 'artblock', 'akiClear', 'toohalu', 'koroneGachikoi', 'fired', 'luckyDay', 'welcomehome', 'allcomplete', 'harvest', 'ayameClear', 'buyingPower', 'firstboss', '50hamburgers', 'secondboss', 'fleshWound', 'couchPotato', 'soraClear', 'calliGachikoi', 'tankclass', 'pacifist', 'reineClear', 'midboss', 'iDidIt', 'fourthboss', 'lovenature', 'kiaraGachikoi', 'subaruGachikoi', 'zetaGachikoi', 'fishfearme', 'rawstrength', 'stealfish', 'guraGachikoi', 'moonaGachikoi', 'irys10', 'fubukiClear']}}),
-        ('Unlock Characters & Costumes', lambda name: {'characters': [[char, 30] for char in ['kronii', 'fubuki', 'calli', 'mel', 'suisei', 'matsuri', 'choco', 'ayame', 'haato', 'roboco', 'fauna', 'sora', 'miko', 'gura', 'sana', 'okayu', 'aki', 'irys', 'shion', 'bae', 'azki', 'kiara', 'aqua', 'ina', 'korone', 'mio',  'ame', 'subaru', 'mumei', 'reine', 'kaela', 'iofi', 'moona', 'ollie', 'risu', 'anya', 'zeta','kobo']], 'unlockedOutfits': ['default', 'ameAlt1', 'kiaraAlt1', 'inaAlt1', 'guraAlt1', 'calliAlt1', 'irysAlt1', 'baeAlt1', 'sanaAlt1', 'faunaAlt1', 'mumeiAlt1', 'kroniiAlt1', 'kurokami', 'ameAlt2', 'inaAlt2', 'guraAlt2', 'calliAlt2', 'kiaraAlt2', 'irysAlt2', 'faunaAlt2', 'kroniiAlt2', 'fubukiAlt1', 'mioAlt1', 'koroneAlt1', 'okayuAlt1', 'soraAlt1', 'azkiAlt1', 'robocoAlt1', 'suiseiAlt1', 'mikoAlt1', 'inaAlt3', 'ameAlt3', 'guraAlt3', 'kiaraAlt3', 'calliAlt3', 'mumeiAlt2', 'irysAlt3', 'baeAlt2', 'okayuAlt2', 'fubukiAlt2', 'mioAlt2', 'koroneAlt2', 'suiseiAlt2', 'soraAlt2', 'azkiAlt2', 'mikoAlt2', 'robocoAlt2', 'haatoAlt1', 'melAlt1', 'matsuriAlt1', 'akiAlt1', 'subaruAlt1', 'chocoAlt1', 'shionAlt1', 'ayameAlt1', 'aquaAlt1'], 'fandomEXP': [[char, 100] for char in ['kronii', 'fubuki', 'calli', 'mel', 'suisei', 'matsuri', 'choco', 'ayame', 'haato', 'roboco', 'fauna', 'sora', 'miko', 'gura', 'sana', 'okayu', 'aki', 'irys', 'shion', 'bae', 'azki', 'kiara', 'aqua', 'ina', 'korone', 'mio',  'ame', 'subaru', 'mumei', 'reine', 'kaela', 'iofi', 'moona', 'ollie', 'risu', 'anya', 'zeta','kobo']]}),
-        ('Unlock Levels', lambda name: {'unlockedStages': ['STAGE 1', 'STAGE 2', 'STAGE 1 (HARD)', 'STAGE 3', 'STAGE 2 (HARD)', 'TIME STAGE 1', 'STAGE 4', 'STAGE 3 (HARD)', 'HOLO HOUSE', 'STAGE 4 (HARD)'], 'timeModeUnlocked': True}),
-        ('Max Passive Skills', lambda name: {'food': 5, 'growth': 1, 'specUnlock': 1, 'haste': 5, 'mobUp': 5, 'ATK': 10, 'stamps': 1, 'regen': 5, 'specCDR': 5, 'enhanceUp': 5, 'EXP': 5, 'moneyGain': 10, 'reroll': 10, 'enchantments': 1, 'fandom': 1, 'eliminate': 10, 'pickupRange': 10, 'DR': 5, 'SPD': 10, 'HP': 10.0, 'crit': 5., 'growth': 3., 'skillDamage': 10}),
-        ('Unlock Furniture', lambda name: {'unlockedFurniture': ['bodypillow', 'vanity', 'gamerchairH', 'gamerchairg', 'gamerchairf', 'gamerchaire', 'gamerchaird', 'gamerchairc', 'gamerchairb', 'gamerchaira', 'officechair', 'beanbag', 'marblelaptopdesk', 'marbledesk', 'woodenPCdesk', 'woodendesk', 'woodenDresserA', 'nightstandB', 'nightstandA', 'futon', 'marblebed', 'woodenBedD', 'woodenBedC', 'woodenBedB', 'woodenBed', 'couchA', 'foxburger', 'woodentable', 'marbletable', 'glasstable', 'easterntable', 'floorcushion', 'woodentallcabinet', 'standinglampA', 'fireplace', 'TVStand', 'crttv', 'retroconsole', 'vrset', 'woodenbookshelf', 'marblebookshelf', 'displaycase', 'woodenDiningTable', 'marbleTable', 'woodenDiningChair', 'marblechair', 'stoolA1', 'kitchenCounterA', 'Microwave', 'marbleCounter', 'marblesink', 'fridge', 'stove', 'bathstool', 'sink', 'bathtub', 'toilet', 'washingmachine', 'laundrybasket', 'woodenCrate', 'woodenbarrel', 'boxA', 'BoxB', 'TreasureChestA', 'plantpotA', 'plantpotB', 'plantpotC', 'berryplant', 'marblestump', 'dumbell', 'exerciseball', 'boxingdummy', 'vampirecoffin', 'baegemite', 'taikodrums', 'shrinebox', 'KFPbucket', 'sharkplush', 'nekoplush', 'achandoll', 'completegrass', 'woodendivider', 'marblepartition', 'easterndivider', 'woodenwall', 'woodenhalfwall', 'woodencolumn', 'marblecolumn', 'woodendoor', 'clock', 'kroniclock', 'paintingA', 'paintingC', 'paintingB', 'paintingD', 'wallmirror', 'lantern', 'hangingvine', 'mountedSword', 'demonSword', 'window', 'hardcoretrophy', 'woodenFloor', 'woodenFloor2', 'stoneFloor', 'redCarpetFloor', 'blueCarpetFloor', 'pinkCarpetFloor', 'concreteFloor', 'marbleFloor', 'tiledFloor', 'tatamiFloor', 'woodenWall', 'flatWall', 'stripedWall', 'skyWall', 'polkaWallA', 'polkaWallB', 'polkaWallC', 'oceanWall', 'modernWall', 'stoneWall', 'easternWall', 'goldenfish1', 'goldenfish2', 'goldenfish3', 'goldenfish4', 'goldenfish5', 'goldenfish6', 'goldenfish7', 'goldenfish8', 'goldenfish9', 'goldenfish10', 'goldenfish11', 'goldenfish12'], 'rodUnlock': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]}),
-        ('Infinite House Items', lambda name: {'inventory': [[item, 9999, 9999] for item in ['shrimp', 'clownfish', 'tuna', 'standardsoil', 'expeditedsoil', 'enhancedsoil', 'wheatSeed', 'tomatoSeed', 'potatoSeed', 'riceSeed', 'onionseed', 'carrotseed', 'greenbeansseed', 'peppersseed', 'strawberryseed', 'cornseed', 'radishseed', 'garlicseed', 'eel', 'koifish', 'lobster', 'wheat', 'tomato', 'potato', 'rice', 'peppers', 'greenbeans', 'carrot', 'onion', 'strawberry', 'corn', 'radish', 'garlic', 'pufferfish', 'mantaray', 'turtle', 'squid', 'shark', 'axolotl','goldenshrimp', 'goldenclownfish', 'goldentuna', 'goldeneel', 'goldenkoifish', 'goldenlobster', 'goldenpufferfish', 'goldenmantaray', 'goldenturtle', 'goldensquid', 'goldenshark', 'goldenaxolotl']]})
-    ]
+    # Infinite Coin
+    ('Infinite Coin', lambda name: {
+        'holoCoins': 9999999999,
+        'randomMoneyKey': 0,
+        'fishSand': 9999999999,
+        'holoChips': 9999999999,
+        'tears': [[group, 1000000] for group in ['myth', 'councilHope', 'gamers', 'gen0', 'gen1', 'gen2', 'id1', 'id2', 'id3', 'gen3', 'gen4']]
+    }),
+
+    # Unlock Weapons
+    ('Unlock Weapons', lambda name: {
+        'unlockedItems': ['BodyPillow', 'FullMeal', 'PikiPikiPiman', 'SuccubusHorn', 'Headphones', 'UberSheep', 'HolyMilk', 'Sake', 'FaceMask', 'CreditCard', 'SuperChattoTime', 'IdolCostume', 'BlacksmithsGear', 'Breastplate', 'StudyGlasses', 'GorillasPaw', 'Halu', 'InjectionAsacoco', 'Membership', 'PiggyBank', 'Bandaid', 'ChickensFeather', 'EnergyDrink', 'GWSPill', 'Plushie', 'DevilHat', 'Limiter', 'NinjaHeadband', 'FocusShades', 'Candy', 'Beetle', 'Shacklesss', 'HopeSoda', 'LabCoat', 'PromiseTiara', 'RavenFeather', 'CorporationPin'],
+        'unlockedWeapons': ['PsychoAxe', 'Glowstick', 'SpiderCooking', 'Tailplug', 'BLBook', 'EliteLava', 'HoloBomb', 'HoloLaser', 'WamyWater', 'CEOTears', 'CuttingBoard', 'BounceBall', 'ENCurse', 'IdolSong', 'XPotato', 'Sausage', 'OwlDagger'],
+        'seenCollabs': ['BLLover', 'BreatheInAsacoco', 'BrokenDreams', 'EliteCooking', 'SnowSake', 'SnowQueen', 'DragonBeam', 'KanaCoco', 'LightBeam', 'MiComet', 'RingOfFitness', 'BoneBros', 'AbsoluteWall', 'BLFujoshi', 'CurseBall', 'DragonFire', 'EldritchHorror', 'IdolConcert', 'LegendarySausage', 'MiKorone', 'RapDog', 'SnowFlowerSake', 'StreamOfTears', 'ImDie', 'Jingisukan', 'HolyFire', 'IdolLive', 'FlatBoard', 'LightningWeiner', 'StarHalberd', 'MariLamy', 'BlackPlague', 'InfiniteBL', 'BloodLust']
+    }),
+
+    # Unlock Achievements
+    ('Unlock Achievements', lambda name: {
+        'achievements': {
+            ach: {'flags': {}, 'unlocked': 1.0}
+            for ach in ['irysGachikoi', 'allcomplete', 'justRNG', 'robocoClear', 'guraClear', 'suiseiClear', 'shinyfish', 'mumeiGachikoi', 'haatoClear', 'trueRNG', 'firstboss', 'mumeiClear', 'thankYou', 'akiClear', 'stealfish', 'inaGachikoi', 'hardcoreGamer', 'secondboss', 'huh', 'bae10', 'robocoGachikoi', 'sana10', 'ameClear', 'iDidIt', 'shionGachikoi', 'painPeko', 'ameGachikoi', 'guraGachikoi', 'matsuriGachikoi', 'sanaGachikoi', '2hard', 'idolPower', '1000damage', 'SCT', 'nothoughts', 'faunaClear', 'reineGachikoi', 'bullethell', 'inaClear', 'welcomehome', 'hallucinated', 'suiseiGachikoi', 'harvest', 'lookImOnTV', 'freeStickers', 'artblock', 'payDay', 'rhythmmaster', 'calliClear', 'moonaGachikoi', 'koroneClear', 'idolgroup', 'moonaClear', 'lv100', 'mikoGachikoi', 'safeISwear', 'chocoClear', 'baeClear', 'risuGachikoi', 'buyingPower', 'subaruGachikoi', 'couchPotato', 'digin', 'anyaGachikoi', 'skillissue', '50hamburgers', 'tankclass', 'fubukiGachikoi', 'notTakingAnyChances', 'mioClear', 'wamy', 'koboGachikoi', 'speedrunner', 'kaelaClear', 'boing', 'obliterated', 'petDog', 'howcouldyou', 'irys10', 'welltrained', 'dontNeed', 'faunaGachikoi', 'koroneGachikoi', 'melGachikoi', 'yagoostatue', 'oraora', 'shionClear', 'calli10', 'ollie10', 'rawstrength', 'soraClear', 'midboss', 'koboClear', 'aquaGachikoi', 'delusional', 'timeToUpgrade', 'risuClear', 'kaelaGachikoi', 'payToWin', 'subaruClear', 'heyhey', 'akiGachikoi', 'soraGachikoi', 'ayameClear', 'luckyDay', 'iofiClear', 'fubukiClear', 'kiaraGachikoi', 'matsuriClear', 'soloBeater', 'azkiClear', 'zeta10', 'lv50', 'millionaire', '3hard', 'ayameGachikoi', 'fourthboss', 'anyaClear', 'haatoGachikoi', 'barebones', 'donttouch', 'melClear', 'mioGachikoi', 'aquaClear', 'fishfearme', 'powerLevelling', 'fired', '1hard', 'nomain', 'fullCollab', 'thirdboss', 'dontFail', 'azkiGachikoi', 'plentyoffish', 'fleshWound', 'baeGachikoi', 'reineClear', 'kiara10', 'lovenature', 'kiaraClear', 'korone10', 'hammertime', 'okayuGachikoi', 'toohalu', 'watameClear', 'gambling', 'zenLoss', 'noelClear', 'scammed', 'stampHunting', 'watameGachikoi', 'legalRight', 'queen', 'CEOnow', 'lunaClear', 'fifthboss', 'jackpot', 'pekoraClear', '4hard', 'marineGachikoi', 'pekoraGachikoi', 'lunaGachikoi', 'cocoGachikoi', 'companion', 'operations', 'findLetters', 'flareGachikoi', 'oneMore', 'kanataGachikoi', 'cocoClear', 'towaClear', 'bigger', 'flareClear', 'towaGachikoi', 'kanataClear', 'faster', 'marineClear', 'noelGachikoi', 'zetaGachikoi', 'employee', 'muscle', 'ina10', '10000damage', 'ollieGachikoi', 'mikoClear', 'irysClear', 'grind', 'zetaClear', 'chocoGachikoi', 'okayuClear', 'fullyLoaded', 'pacifist', 'sanaClear', 'shion10', 'iofiGachikoi', 'calliGachikoi', 'kroniiClear', 'highwayrobbery', 'firstclear', 'kroniiGachikoi', 'ollieClear']
+        },
+        'fanletters': ['Kobokerz', 'Zecretary', 'Udin', 'Zomrade', 'Moonafic', 'Shiokko', 'Nakirigumi', 'FubuChun', 'Oruyanke', 'Miteiru', 'Kintoki', 'Robosa', 'Hoshiyomi', 'Miofa', 'Yatagarasu', 'Kenzoku', 'Tatsunoko', 'GuyRys', 'Hoomans', 'Brats', 'SmollAme', 'CursedBubba', 'SSRB', 'Sanalites', 'Kronies', 'KFP', 'Nodoka', 'Area15', 'Heimin', 'Pemaloe', 'Bazo', 'Cilus', 'Merakyat', 'Melfriend', 'Risuner', 'Aquacrew', 'Chocomate', 'Subatomo', 'Rosetai', 'Kapumin', 'Achan', 'Sukonbu', 'DeadbeatQ', 'Takodachi', 'Saplings', 'Haaton', 'Matsurisu', 'Pioneer', 'Soratomo', 'BloomGloom', 'Deadbeat', 'Moonabito', 'Spiderchama', 'Shrimp', 'Ioforia', 'Riscot', 'Watamate', 'Nousagi', 'Ichimi', 'ShiroganeKnight', 'Elfriend', 'Otaku', 'Nanoraaa', 'Fubuzilla', 'HalloweenBae', 'Mikodanye', 'Shubangelion', 'Teamate', 'ShrimpQ', 'HalloweenMyth', 'ObakeChan', 'Mikopi', 'Staff', 'GoriEla', 'Pekodam', 'Onigiriya', 'Koronesuki', 'Upao', 'Luknight', 'Chocolat', 'Irystocrats', 'Payoyo']
+    }),
+
+    # Unlock Characters & Costumes
+    ('Unlock Characters & Costumes', lambda name: {
+        'characters': [[char, 30] for char in ['kronii', 'fubuki', 'calli', 'mel', 'kobo', 'suisei', 'matsuri', 'choco', 'ayame', 'haato', 'random', 'reine', 'none', 'roboco', 'fauna', 'sora', 'miko', 'empty', 'gura', 'sana', 'okayu', 'aki', 'irys', 'kaela', 'shion', 'bae', 'azki', 'kiara', 'aqua', 'ina', 'iofi', 'korone', 'moona', 'ollie', 'mio', 'ame', 'subaru', 'mumei', 'risu', 'anya', 'zeta', 'flare', 'luna', 'pekora', 'kanata', 'watame', 'noel', 'marine', 'coco', 'towa']],
+        'unlockedOutfits': ['default', 'ameAlt3', 'ameAlt1', 'ameAlt2', 'inaAlt1', 'inaAlt2', 'inaAlt3', 'guraAlt1', 'guraAlt2', 'guraAlt3', 'calliAlt1', 'calliAlt2', 'calliAlt3', 'kiaraAlt1', 'kiaraAlt2', 'kiaraAlt3', 'sanaAlt1', 'faunaAlt2', 'irysAlt2', 'okayuAlt1', 'mioAlt2', 'koroneAlt1', 'mikoAlt2', 'robocoAlt2', 'haatoAlt1', 'matsuriAlt1', 'akiAlt1', 'shionAlt1', 'ayameAlt1', 'chocoAlt1', 'subaruAlt1', 'irysAlt3', 'irysAlt1', 'baeAlt1', 'baeAlt2', 'faunaAlt1', 'mumeiAlt1', 'mumeiAlt2', 'kroniiAlt2', 'kroniiAlt1', 'kurokami', 'fubukiAlt1', 'fubukiAlt2', 'mioAlt1', 'koroneAlt2', 'okayuAlt2', 'soraAlt1', 'soraAlt2', 'azkiAlt1', 'azkiAlt2', 'robocoAlt1', 'suiseiAlt1', 'suiseiAlt2', 'mikoAlt1', 'melAlt1', 'aquaAlt1', 'marineAlt1', 'noelAlt1', 'pekoraAlt1', 'lunaAlt1', 'watameAlt1', 'cocoAlt1', 'kanataAlt1', 'towaAlt1', 'flareAlt1'],
+        'fandomEXP': [[char, 100] for char in ['kronii', 'fubuki', 'calli', 'mel', 'kobo', 'suisei', 'matsuri', 'choco', 'ayame', 'haato', 'reine', 'none', 'roboco', 'fauna', 'sora', 'miko', 'gura', 'sana', 'okayu', 'aki', 'irys', 'kaela', 'shion', 'bae', 'azki', 'kiara', 'aqua', 'ina', 'iofi', 'korone', 'moona', 'ollie', 'mio', 'ame', 'subaru', 'mumei', 'risu', 'anya', 'zeta', 'flare', 'luna', 'pekora', 'kanata', 'watame', 'noel', 'marine', 'coco', 'towa']]
+    }),
+
+# Unlock Levels
+('Unlock Levels', lambda name: {
+    'unlockedStages': ['STAGE 1', 'HOLO HOUSE', 'STAGE 2', 'STAGE 3', 'STAGE 4', 'STAGE 1 (HARD)', 'STAGE 2 (HARD)', 'STAGE 3 (HARD)', 'TIME STAGE 1', 'TIME STAGE 2', 'TIME STAGE 3', 'TIME STAGE 4', 'TIME STAGE 5', 'STAGE 5', 'STAGE 4 (HARD)', 'STAGE 5 (HARD)', 'USADA CASINO'],
+    'timeModeUnlocked': True
+}),
+
+    # Max Passive Skills
+    ('Max Passive Skills', lambda name: {
+      "selectedArmor": 5.0,
+      "skillDamage": 10.0,
+      "food": 5.0,
+      "growth": 3.0,
+      "usingAxe": 8.0,
+      "woodLevel": 10.0,
+      "specUnlock": 1.0,
+      "GROff": 0.0,
+      "haste": 5.0,
+      "canDisable": 1.0,
+      "mobUp": 5.0,
+      "materialDrops": 1.0,
+      "usingPick": 8.0,
+      "moneyGain": 10.0,
+      "reroll": 10.0,
+      "regen": 5.0,
+      "specCDR": 5.0,
+      "enhanceUp": 5.0,
+      "mineLevel": 10.0,
+      "EXP": 5.0,
+      "fandom": 1.0,
+      "itemLimit": 0.0,
+      "weaponLimit": 0.0,
+      "pickUnlock": 1.0,
+      "DR": 5.0,
+      "SPD": 10.0,
+      "crit": 5.0,
+      "HP": 10.0,
+      "manageLevel": 4.0,
+      "towerFalls": 1.0,
+      "ATK": 10,
+      "stamps": 1,
+      "enchantments": 1,
+      "eliminate": 10,
+      "pickupRange": 10,
+      'supports': 1.0,
+      'fanLetterUnlock': 1.0,
+    }),
+
+
+    # Unlock Furniture
+    ('Unlock Furniture', lambda name: {
+        'unlockedFurniture': ['tatamiFloor', 'oceanWall', 'tiledFloor', 'pinkCarpetFloor', 'concreteFloor', 'marbleFloor', 'easternWall', 'stoneWall', 'modernWall', 'polkaWallC', 'polkaWallB', 'polkaWallA', 'skyWall', 'stripedWall', 'flatWall', 'woodenWall', 'blueCarpetFloor', 'redCarpetFloor', 'stoneFloor', 'woodenFloor2', 'woodenFloor', 'window', 'demonSword', 'mountedSword', 'hangingvine', 'lantern', 'wallmirror', 'paintingD', 'paintingB', 'paintingC', 'paintingA', 'kroniclock', 'clock', 'woodendoor', 'marblecolumn', 'woodencolumn', 'woodenhalfwall', 'woodenwall', 'easterndivider', 'marblepartition', 'woodendivider', 'nekoplush', 'sharkplush', 'KFPbucket', 'shrinebox', 'taikodrums', 'baegemite', 'vampirecoffin', 'boxingdummy', 'exerciseball', 'dumbell', 'berryplant', 'plantpotC', 'plantpotB', 'plantpotA', 'TreasureChestA', 'marblestump', 'BoxB', 'boxA', 'woodenbarrel', 'woodenCrate', 'laundrybasket', 'washingmachine', 'toilet', 'bathtub', 'sink', 'bathstool', 'woodenDiningTable', 'marbleTable', 'woodenDiningChair', 'marblechair', 'stoolA1', 'kitchenCounterA', 'Microwave', 'marbleCounter', 'marblesink', 'fridge', 'stove', 'marblebookshelf', 'woodenbookshelf', 'vrset', 'retroconsole', 'crttv', 'TVStand', 'fireplace', 'standinglampA', 'woodentallcabinet', 'floorcushion', 'easterntable', 'glasstable', 'marbletable', 'woodentable', 'foxburger', 'couchA', 'bodypillow', 'vanity', 'gamerchairH', 'gamerchairg', 'gamerchairf', 'gamerchaire', 'gamerchaird', 'gamerchairc', 'gamerchairb', 'gamerchaira', 'officechair', 'beanbag', 'marblelaptopdesk', 'marbledesk', 'woodenPCdesk', 'woodendesk', 'woodenDresserA', 'nightstandB', 'nightstandA', 'futon', 'marblebed', 'woodenBedD', 'woodenBedC', 'woodenBedB', 'woodenBed', 'displaycase', 'completegrass', 'achandoll', 'hardcoretrophy'],
+        'rodUnlock': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    }),
+
+    # Infinite House Items
+    ('Infinite House Items', lambda name: {
+        'inventory': [[item, 9999, 9999] for item in ['shrimp', 'turtle', 'tuna', 'standardsoil', 'expeditedsoil', 'enhancedsoil', 'wheatSeed', 'tomatoSeed', 'potatoSeed', 'riceSeed', 'onionseed', 'carrotseed', 'greenbeansseed', 'peppersseed', 'strawberryseed', 'cornseed', 'radishseed', 'garlicseed', 'clownfish', 'lobster', 'eel', 'squid', 'mantaray', 'shark', 'koifish', 'pufferfish', 'wheat', 'tomato', 'potato', 'rice', 'onion', 'carrot', 'greenbeans', 'peppers', 'strawberry', 'corn', 'radish', 'garlic', 'stick', 'stone', 'leadbar', 'hardwood', 'plank', 'ironbar', 'cedarwood', 'mythrilbar', 'maplewood', 'diamond', 'acaciawood', 'adamantitebar', 'teakwood', 'bamboowood', 'hololite', 'platinumbar', 'axolotl']]
+    })
+]
+
 
     # Update static data using helper functions
     for name, func in static_functions:

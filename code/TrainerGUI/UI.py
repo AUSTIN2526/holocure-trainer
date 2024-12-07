@@ -26,14 +26,14 @@ class HoloCureTrainerUI:
 
     SETTINGS = {
         'zh_TW': {
-            'window_size': (700, 480),
+            'window_size': (700, 350),
             'checkbox_spacing': 140,
             'row_spacing': 30,
             'label_font_size': 10,
             'max_columns': 5
         },
         'en': {
-            'window_size': (800, 480),
+            'window_size': (800, 350),
             'checkbox_spacing': 160,
             'row_spacing': 30,
             'label_font_size': 10,
